@@ -10,8 +10,8 @@ from pydantic import AnyUrl, Field
 import readabilipy
 from pathlib import Path
 
-TOKEN = "<generated_token>"
-MY_NUMBER = "6382590883"  # Insert your number {91}{Your number}
+TOKEN = "2d610c8d3781"
+MY_NUMBER = "{91}{6382590883}"  # Insert your number {91}{Your number}
 
 
 class RichToolDescription(BaseModel):
@@ -147,6 +147,13 @@ async def resume() -> str:
     4. Return the resume as markdown text.
     """
     # TODO: Implement resume fetching logic
+    try:
+        resume_path = Path("Resume.md")
+        if not resume_path.exists():
+            return "<error>Resume file not found.</error>"
+        return resume_path.read_text(encoding="utf-8")
+    except Exception as e:
+        return f"<error>Failed to load resume: {e}</error>"
     raise NotImplementedError("Resume tool not implemented")
 
 
@@ -227,5 +234,6 @@ async def main():
 
 if __name__ == "__main__":
     import asyncio
+
 
     asyncio.run(main())
