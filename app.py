@@ -11,7 +11,7 @@ import readabilipy
 from pathlib import Path
 
 TOKEN = "2d610c8d3781"
-MY_NUMBER = "{91}{6382590883}"  # Insert your number {91}{Your number}
+MY_NUMBER = "916382590883"  # Insert your number {91}{Your number}
 
 
 class RichToolDescription(BaseModel):
@@ -237,3 +237,4 @@ if __name__ == "__main__":
 
 
     asyncio.run(main())
+
